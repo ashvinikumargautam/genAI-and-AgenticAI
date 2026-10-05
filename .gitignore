@@ -1,0 +1,5 @@
+# Virtual environment
+ai/
+
+# Environment variables
+.env
