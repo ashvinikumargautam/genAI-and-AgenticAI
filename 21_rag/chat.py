@@ -22,7 +22,7 @@ user_querry = input("Ask something : ")
 # relevent chunks from vector db
 search_result = vector_db.similarity_search(query=user_querry)
 
-context = "\n\n\n".join([f"page content : {result.page_content} \n Page Number : {result.metadata['page_label']}\n file location : {resul.metadata['source']}"
+context = "\n\n\n".join([f"page content : {result.page_content} \n Page Number : {result.metadata['page_label']}\n file location : {result.metadata['source']}"
 for result in search_result])
 
 
@@ -40,7 +40,7 @@ openai_client = OpenAI()
 response = openai_client.chat.completions.create(
     model = "gpt-5",
     messages = [
-        {"role":"syestem","content":SYESTEM_PROMPT},
+        {"role":"system","content":SYESTEM_PROMPT},
         {"role":"user","content": user_querry}
     ]
 )
